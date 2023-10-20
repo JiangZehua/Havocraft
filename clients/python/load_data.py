@@ -69,10 +69,11 @@ def spawn_block(client, orig, blocks):
         client.spawnBlocks(Blocks(blocks=block_lst[i:i + n_blocks]))
 
 
+# 300 represents the height of the spawn block
 def render_blocks(block_arr):
     channel = grpc.insecure_channel('localhost:5001')
     client = MinecraftServiceStub(channel)
-    spawn_block(client, (0, 0, 0), block_arr)
+    spawn_block(client, (0, 150, 0), block_arr)
 
 
 def load_block_in_Minecraft(path):

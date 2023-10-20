@@ -1,11 +1,13 @@
 import math
 
+
 # parameter equation, given a specific degree, return the position and rotation player should be
 def get_player_pos_and_rot_by_degree(degree):
     radius = math.pi / 180 * degree
-    x = 50 * math.sqrt(2) * math.cos(radius) + 50
-    y = 50
-    z = 50 * math.sqrt(2) * math.sin(radius) + 50
+    # slightly smaller than 50, making it available to render the blocks
+    x = 48 * math.sqrt(2) * math.cos(radius) + 50
+    y = 200
+    z = 48 * math.sqrt(2) * math.sin(radius) + 50
     yRot = degree + 90
     xRot = 0
     result = f'teleport GIL_Bert {int(x)} {int(y)} {int(z)} {yRot} {xRot}'
