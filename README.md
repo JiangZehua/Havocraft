@@ -1,5 +1,91 @@
 
-# Mine Fusion
+# DreamCraft
+- A Minecraft Server for DreamCraft Result Visualization
+- New York University | Game Innovation Lab
+
+## 1. How to Install to Minecraft (Windows Version)
+
+### Download Minecraft
+You need to have a Microsoft account that has purchased Minecraft (not free version, because you need `multiplayer` feature)
+
+Download `Minecraft Launcher` and `Minecraft Java Edition`
+  - Suggest directly download it from official website of [Minecraft](https://www.minecraft.net/en-us/download-dungeons)
+  - Do not directly download from Microsoft or Xbox!
+- You also need to install [Java8](https://www.java.com/download/ie_manual.jsp) in your computer
+
+
+### Install Compatible Version
+`Minecraft Java Edition` **MUST** have a **compatible version** ()
+  1. `Installations`
+  2. `New`
+  3. Give it a name
+  4. Select version **1.12.2**
+  5. `Create`
+
+You can reference this [link](https://help.minecraft.net/hc/en-us/articles/360034754852-Change-Game-Version-for-Minecraft-Java-Edition#:~:text=Click%20Installations%20on%20the%20launcher,Play%20on%20the%20top%20menu.) to see how to install different version of Minecraft
+
+### Launch Server and Connect
+
+Launch server: `java -jar spongevanilla-1.12.2-7.3.0.jar` (we will introduce it in the later section).
+
+Open **Minecraft Java version**, under the `Multiplayer` selection, add the server: `localhost`.
+
+Login and you are connected to the [Evocraft](https://github.com/real-itu/Evocraft-py) server.
+
+## 2. How to Launch the Server
+### Server Initialization
+You have to follow the README of [Evocraft](https://github.com/real-itu/Evocraft-py) to correctly initialize the server.
+
+### Launch the Server
+The majority of the server source files are contained in the `server` code. After initialization, you will get many new files.
+
+Under the root directory, enter the `server` folder and execute `java -jar spongevanilla-1.12.2-7.3.0.jar`.
+
+This can be written as the terminal command: 
+
+```
+cd server
+java -jar spongevanilla-1.12.2-7.3.0.jar 
+```
+### Execute Server Commands
+
+Evocraft supports multiple commands to set up Minecraft environment.
+
+After you successfully launch Minecraft Server, you can enter `\help` to check different commands. Evocraft README also contains some common
+ commands.
+
+### Execute Python code
+Evocraft supports executing python code. When you launch the server, you can open up a new terminal to execute the python code.
+
+```
+python <your_python_file_name>.py
+```
+
+You can also check Evocraft README to get the idea of how to write your own python code.
+
+### Reset Server Environment
+
+To reset the server. Execute the `reset_server.py`.
+```
+python server/reset_server.py
+```
+
+
+
+## 3. How to Generate Data in Minecraft
+
+### Collect the data
+Download your training data `<name>.npz` from the [training repo](https://github.com/smearle/dreamcraft).
+
+Copy and paste them under the `object_data` folder.
+
+
+
+
+## 4. How to Record a Video of the Result
+
+
+
 
 ## Data generation
 Make sure you have java installed, then launch a modded Minecraft server with:
@@ -37,8 +123,10 @@ We use hydra. The config can be found at `conf/config.yaml`
 
 See below for details about how we have hacked `minecraft-rpc` to interact with a modded Minecraft server via python.
 
-# Minecraft RPC (Havocraft)
-A [gRPC](https://grpc.io) interface for Minecraft. 
+## How to Add new Python Command (Minecraft RPC)
+
+This is adoped by A [gRPC](https://grpc.io) interface for Minecraft. 
+
 
 We will be editing `./src/main/proto/minecraft.proto` and `./src/main/java/dk/itu/real/ooe/services/MinecraftService.java`, to add new python commands via which we can interact with our modded Minecraft server. (E.g., we'd like to have a command to remove all collectible items, and add certain block types.) We will test functionality in `clients/python/example.py`.
 
