@@ -1,7 +1,7 @@
 import numpy as np
 import torch
-from clients.python.src.main.proto.minecraft_pb2 import *
-from clients.python.src.main.proto.minecraft_pb2_grpc import *
+from src.main.proto.minecraft_pb2 import *
+from src.main.proto.minecraft_pb2_grpc import *
 
 # name of the blocks map to Minecraft block index
 textures_to_ec = {
@@ -81,4 +81,4 @@ def load_block_in_Minecraft(path):
 
 
 # eg:
-load_block_in_Minecraft('../object_data/ec_block_arr_w-100.npz')
+load_block_in_Minecraft('../../data/ec_block_arr_w-100.npz')
