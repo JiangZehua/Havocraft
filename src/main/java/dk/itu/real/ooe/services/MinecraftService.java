@@ -238,7 +238,7 @@ public class MinecraftService extends MinecraftServiceImplBase {
             World world = Sponge.getServer().getWorlds().iterator().next();
             // Get tallest block at location
             int x = loc.getX();
-            int y = world.getHighestYAt(loc.getX(), loc.getZ());
+            int y = loc.getY();
             int z = loc.getZ();
             builder.setX(x).setY(y).setZ(z);
             Player player = Sponge.getServer().getPlayer("GIL_Bert").get();
