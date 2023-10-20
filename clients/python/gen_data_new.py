@@ -27,7 +27,7 @@ def get_screenies(client, num_samples):
     for(x, y, z, rot, _) in player_pos:
         client.setLoc(Point(x=x, y=y, z=z))
         # -45 temp rotation, since y doesn't work well now
-        client.setRot(Point(x=-45, y=int(rot), z=0))
+        client.setRot(Point(x=0, y=int(rot), z=0))
         top_left_corner_screenshot(f"{i}", bbox=BBOX)
         print(f"Saved sreenshot {i}, location {x}, {y}, {z}")
         i += 1

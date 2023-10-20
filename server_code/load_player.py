@@ -8,7 +8,7 @@ BBOX = (BBOX_OFFSET[0], BBOX_OFFSET[1], BBOX_OFFSET[0] + SCREENSHOT_SIZE[0], BBO
 def get_player_pos_and_rot_by_degree(degree):
     radius = math.pi / 180 * degree
     x = 50 * math.sqrt(2) * math.cos(radius) + 50
-    y = 150
+    y = 50
     z = 50 * math.sqrt(2) * math.sin(radius) + 50
     yRot = degree + 90
     xRot = 0
