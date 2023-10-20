@@ -6,4 +6,6 @@ torchinfo
 PyGetWindow
 pyobjc-framework-Quartz        # M1 mac only?
 pyscreenshot
+opencv-python==3.4.15.55
+Pillow
 # install hydra using: pip install hydra-core --upgrade

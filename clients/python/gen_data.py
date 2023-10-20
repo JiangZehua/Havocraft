@@ -4,6 +4,7 @@ import pyscreenshot as ImageGrab
 import src.main.proto.minecraft_pb2_grpc
 from src.main.proto.minecraft_pb2 import *
 import clients.python.load_position as player
+import time
 
 
 def top_left_corner_screenshot(name: str, bbox):
@@ -11,9 +12,9 @@ def top_left_corner_screenshot(name: str, bbox):
     im.save(os.path.abspath(os.path.join(os.getcwd(), "../..", 'result', 'screenshots', f"{name}.png")))
 
 
-def get_screenies(client, num_samples):
-    SCREENSHOT_SIZE = (512, 512)
-    BBOX_OFFSET = (0, 66)  # For 16" M1 MacBook Pro
+def get_screenshot(client, num_samples):
+    SCREENSHOT_SIZE = (843, 480)
+    BBOX_OFFSET = (0, 43)  # For 16" M1 MacBook Pro
     BBOX = (BBOX_OFFSET[0], BBOX_OFFSET[1], BBOX_OFFSET[0] + SCREENSHOT_SIZE[0], BBOX_OFFSET[1] + SCREENSHOT_SIZE[1])
 
     # Continue when user enters "y"
@@ -23,6 +24,7 @@ def get_screenies(client, num_samples):
     print("Now change focus to the Minecraft window. (User, e.g. alt + tab. Do not move the window!)")
     print("Minecraft is active window now!")
 
+    time.sleep(2)  # sleep two seconds, waiting for user to click the start game
     player_pos = player.get_list_of_command_by_interpolation(num_samples)
     i = 0
     for (x, y, z, rot, _) in player_pos:
@@ -37,7 +39,7 @@ def get_screenies(client, num_samples):
 def main(num_samples: int = 360):
     channel = grpc.insecure_channel('localhost:5001')
     client = src.main.proto.minecraft_pb2_grpc.MinecraftServiceStub(channel)
-    get_screenies(client=client, num_samples=num_samples)
+    get_screenshot(client=client, num_samples=num_samples)
 
 
 if __name__ == "__main__":
